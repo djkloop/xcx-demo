@@ -1,5 +1,6 @@
 var postData = require('../../../mock/mock.post.data.js');
 let app = getApp();
+let { wxGlobalIsPlayingMusicPostId, wxGlobalIsPlayingMusicBoolean } = app.globalData;
 Page({
   /**
    * 页面的初始数据
@@ -7,29 +8,32 @@ Page({
   data: {
     collected: false,
     isMusic: false,
-    currentTime: 0
+    currentPostId: 0,
+    cacheUrl: ''
   },
   onAudioTap(e) {
     let postId = this.data.postId || 0;
-    let backgroundAudioManager = wx.getBackgroundAudioManager();
     let isMusic = this.data.isMusic;
     if (isMusic) {
-      console.log('能不能监听到啊...')
-      backgroundAudioManager.pause();
+      wx.pauseBackgroundAudio()
       this.setData({
-        isMusic: false,
-        currentTime: backgroundAudioManager.currentTime
+        isMusic: false
       })
     } else {
+      let { src, title, coverImgUrl } = postData.postList[postId].music
+      console.log(src);
+      // 虽然还是有点小bug但那个就无法解决了...
+      let backgroundAudioManager = wx.getBackgroundAudioManager();
       Object.assign(backgroundAudioManager, Object.assign({}, backgroundAudioManager, postData.postList[postId].music));
-      //  iphone6s pause有bug不能断点播放 seek 有bug 只能用startTime来解决
-      if (this.data.currentTime !== 0) {
-        backgroundAudioManager.startTime = this.data.currentTime
-      } else {
-        this.setData({
-          isMusic: true
-        })
-      }
+      // wx.playBackgroundAudio({
+      //   dataUrl: src,
+      //   title,
+      //   coverImgUrl,
+      // })
+      // pause有bug不能断点播放 seek 有bug 只能用startTime来解决
+      this.setData({
+        isMusic: true
+      })
     }
   },
   onCollectTap: function (e) {
@@ -71,25 +75,16 @@ Page({
    */
   onLoad: function (options) {
     let postId = options.postId || 0;
+    this.setData({ currentPostId: postId })
     let postDatas = postData.postList[postId];
     var _this = this;
-    console.log(this.getInfo(), '页面加载')
-    if (this.getCurrentTime()) {
-      this.setData({
-        postId,
-        ...app.data.userInfo,
-        ...postDatas,
-        currentTime: _this.getCurrentTime(),
-        isMusic: this.getInfo().isUnLoad ? false : true
-      });
-    } else {
-      this.setData({
-        postId,
-        ...app.data.userInfo,
-        ...postDatas
-      });
-    }
-
+    this.setData({
+      postId,
+      ...app.data.userInfo,
+      ...postDatas
+    });
+  
+    console.log('on load')
     // 缓存模块 
     var postsCollected = wx.getStorageSync('posts_collected')
     if (postsCollected) {
@@ -105,27 +100,41 @@ Page({
       postsCollected[postId] = false;
       wx.setStorageSync('posts_collected', postsCollected)
     }
+    // 如果全局为真 则正在播放
+    // 如果全局为假 则不用改变
+    console.log(wxGlobalIsPlayingMusicPostId);
+    if (wxGlobalIsPlayingMusicBoolean && wxGlobalIsPlayingMusicPostId === postId) {
+      this.setData({ isMusic: true })
+    }
+    this.setAudioMusic();
+  },
 
+  setAudioMusic() {
+    var _this = this;
     wx.onBackgroundAudioPlay(_ => {
-      console.log('播放')
-      this.setData({
+      _this.setData({
         isMusic: true
       })
+
+      console.log('聊天界面点了一下?')
+      wxGlobalIsPlayingMusicBoolean = true;
+      wxGlobalIsPlayingMusicPostId = _this.data.currentPostId;
     });
 
     wx.onBackgroundAudioPause(_ => {
-      var d = wx.getBackgroundAudioManager();
-      console.log('暂停');
-      this.setData({
-        isMusic: false,
-        currentTime: d.currentTime
+      _this.setData({
+        isMusic: false
       })
+      console.log('聊天界面点了一下?')
+      wxGlobalIsPlayingMusicBoolean = false;
+      wxGlobalIsPlayingMusicPostId = void 0;
     });
 
     wx.onBackgroundAudioStop(_ => {
-      this.setData({
+      _this.setData({
         isMusic: false
       })
+      console.log('xxxx');
     });
   },
 
@@ -166,27 +175,14 @@ Page({
    */
   onHide: function () {
     var _this = this;
-    this.setInfo('isUnLoad', false);
-    this.setData({
-      currentTime: _this.getCurrentTime(),
-    })
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    var f = wx.getBackgroundAudioManager();
-    console.log(this.data.isMusic)
-    if(!this.data.isMusic) {
-      f.isUnLoad = true;
-    }
-    this.setData({
-      currentTime: 0,
-      isMusic: false,
-      isUnLoad: true
-    })
-    console.log(this.data);
+
   },
 
   /**

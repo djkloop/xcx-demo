@@ -3,7 +3,7 @@
   <text catchtap='onAudioTap' class='ps-head-play fa fa-{{isMusic?"pause":"play"}}-circle'></text>
   <view class='ps-author-info'>
     <image class='author-logo' src="{{avatarUrl}}" />
-    <text class='author-name'>{{nickName}}</text>
+    <text class='author-name'>{{nickName}} - {{currentPostId}}</text>
     <text class='send-prefix'>发布于</text>
     <text class='send-time'>{{dateTime}}</text>
   </view>
