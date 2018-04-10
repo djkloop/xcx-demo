@@ -84,9 +84,16 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-size: 26rpx;
+  font-size: 30rpx;
   align-items: center;
+  padding: 10rpx 0;
 }
+
+.ps-detail-container:active {
+  background: #f9f9f9;
+
+}
+
 .ps-list-look-text,
 .ps-list-look-icon {
   padding: 15rpx 20rpx 15rpx 10rpx;
