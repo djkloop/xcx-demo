@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "views/welcome/welcome",
+    "views/post/post",
+    "views/post/co-detail-template/co-detail-template"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#191e5b",
+    "navigationBarTitleText": "小程序标题测试",
+    "navigationBarTextStyle": "#ffffff"
+  }
+}

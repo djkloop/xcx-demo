@@ -1,0 +1,27 @@
+@import "font-awsome.wxss";
+
+::-webkit-scrollbar {
+  height: 0;
+  width: 0;
+  color: transparent;
+}
+
+.co-text {
+  font-family: MicroSoft Yahei;
+}
+
+.m-b-50 {
+  margin-bottom: 50rpx;
+}
+
+.m-b-100 {
+  margin-bottom: 100rpx;
+}
+
+.m-b-150 {
+  margin-bottom: 150rpx;
+}
+
+.m-b-200 {
+  margin-bottom: 200rpx;
+}

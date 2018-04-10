@@ -1,0 +1,19 @@
+<view class='ps-dt-container'>
+  <image class='ps-head-img {{isMusic?"active-no-filter":""}}' src='{{isMusic?music.coverImgUrl:avatarUrl}}' />
+  <text catchtap='onAudioTap' class='ps-head-play fa fa-{{isMusic?"pause":"play"}}-circle'></text>
+  <view class='ps-author-info'>
+    <image class='author-logo' src="{{avatarUrl}}" />
+    <text class='author-name'>{{nickName}}</text>
+    <text class='send-prefix'>发布于</text>
+    <text class='send-time'>{{dateTime}}</text>
+  </view>
+  <text class='ps-dt-title'>{{title}}</text>
+  <view class='ps-dt-content-tool'>
+    <view class='ps-dt-tool-circle'>
+      <text catchtap='onCollectTap' class='fa fa-bookmark-o{{collected ? " fa-active" :""}}'></text>
+      <text catchtap='onShareTap' class='fa fa-share-square-o'></text>
+    </view>
+    <view class='hr'></view>
+  </view>
+  <text class='ps-dt-content'>{{detail}}</text>
+</view>

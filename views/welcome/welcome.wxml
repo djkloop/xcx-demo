@@ -1,0 +1,12 @@
+<view class='co-container'>
+  <view class='wel-container'>
+    <image class="wel-logo m-b-50" src="{{avatarUrl}}"></image>
+    <text class='wel-user-text m-b-150'>
+      <text class='wel-hello'>Hello,</text> 
+      <text class='wel-text'>{{nickName}}</text>
+    </text>
+    <view class='wel-btn-container' data-hello="{{nickName}}" bindtap='goPost'>
+      <text class='wel-btn'>开启小程序之旅</text>
+    </view>
+  </view>
+</view>

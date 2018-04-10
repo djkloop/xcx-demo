@@ -1,0 +1,27 @@
+<!--views/co-list/co-template.wxml-->
+<template name="co-template">
+  <view class='ps-detail-container'>
+    <view class="ps-author-info">
+      <image class='ps-author-avatar' src="{{avatar}}"></image>
+      <view class='ps-detail-info'>
+        <text class='ps-author-nickname'>作者：{{author}}</text>
+        <text class='ps-author-time'>发布时间：{{date}}</text>
+      </view>
+    </view>
+    <view class='ps-list-content'>
+      <text class='ps-list-title'>{{title}} - {{idx}}</text>
+      <image class='ps-list-img' src="{{imgSrc}}"></image>
+      <text class="ps-list-description">{{content}}</text>
+    </view>
+    <view class='ps-list-view-info'>
+      <icon class='fa fa-star-o'></icon>
+      <text>{{collection}}</text>
+      <icon class='fa fa-eye'></icon>
+      <text>{{reading}}</text>
+    </view>
+    <view class='ps-list-look' catchtap='onGoToPostDetail' data-postId="{{postId}}">
+      <text class='ps-list-look-text'>点击查看文章详情</text>
+      <text class='ps-list-look-icon fa fa-hand-o-right'></text>
+    </view>
+  </view>
+</template>

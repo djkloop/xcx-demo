@@ -1,0 +1,93 @@
+/* views/co-list/co-template.wxss */
+.ps-detail-container {
+  display: flex;
+  flex-direction: column;
+  margin: 20rpx 15rpx 40rpx 15rpx;
+  background: #fff;
+  border-radius: 8rpx;
+  padding: 5rpx;
+}
+
+.ps-author-info {
+  margin: 10rpx 0 10rpx 10rpx;
+  display: flex;
+}
+
+.ps-author-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 8rpx;
+  vertical-align: middle;
+}
+
+.ps-author-time, .ps-author-nickname {
+  margin-left: 15rpx;
+  font-size: 24rpx;
+  margin-top: 8rpx;
+}
+
+.ps-detail-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.ps-author-time {
+  color: #888;
+}
+
+.ps-list-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ps-list-title,
+.ps-list-img,
+.ps-list-description {
+  margin: 10rpx 0;
+}
+
+.ps-list-title {
+  font-size: 36rpx;
+  padding: 0 15rpx;
+}
+
+.ps-list-img {
+  width: 95%;
+  border-radius: 8rpx;
+  box-shadow: 0 0 8rpx #A8A8A8;
+  align-self: center;
+}
+
+.ps-list-description {
+  font-size: 26rpx;
+  padding: 0 15rpx;
+  color: #ababab;
+}
+
+.ps-list-view-info {
+  padding: 0 10rpx;
+  display: inline-block;
+  margin: -15rpx 0 10rpx;
+}
+
+.ps-list-view-info icon,
+.ps-list-view-info text {
+  color: #ababab;
+  font-size: 24rpx;
+  margin-right: 5rpx;
+}
+
+.ps-list-look {
+  border-top: 1px solid rgba(136, 136, 136, .3);
+  color: #333;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 26rpx;
+  align-items: center;
+}
+.ps-list-look-text,
+.ps-list-look-icon {
+  padding: 15rpx 20rpx 15rpx 10rpx;
+}

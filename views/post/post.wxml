@@ -1,0 +1,21 @@
+<import src="./co-list/co-template.wxml" />
+<view class='ps-container'>
+  <swiper class="co-swiper-container" circular indicator-dots autoplay indicator-active-color="#39abcf" interval="3000">
+    <swiper-item>
+      <text style='position:absolute;top:120rpx;z-index:2;'>这是动态\r\n添加的内容呦~</text>
+      <image class="co-swiper-img" src="/static/swiper-img/swiper-1.png" />
+    </swiper-item>
+    <swiper-item>
+      <image class="co-swiper-img" src="/static/swiper-img/swiper-2.png" />
+    </swiper-item>
+    <swiper-item>
+      <image class="co-swiper-img" src="/static/swiper-img/swiper-3.png" />
+    </swiper-item>
+    <swiper-item>
+      <image class="co-swiper-img" src="/static/swiper-img/swiper-4.png" />
+    </swiper-item>
+  </swiper>
+  <block wx:for="{{post_content}}" wx:key="idx" wx:for-index="idx" wx:for-item="item">
+    <template is="co-template" data="{{...item, idx}}" />
+  </block>
+</view>
