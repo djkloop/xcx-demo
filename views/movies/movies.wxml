@@ -1,2 +1,12 @@
-<!--views/movies/movies.wxml-->
-<text>views/movies/movies.wxml</text>
+<import src="./t-movies-list/t-movies-list.wxml" />
+<view class='xx'>
+    <view class='movies-main-container'>
+      <template is="tMoviesTemplate" data="{{...inTheaters}}" />
+    </view>
+    <view class='movies-main-container'>
+      <template is="tMoviesTemplate" data="{{...comingSoon}}" />
+    </view>
+    <view class='movies-main-container'>
+      <template is="tMoviesTemplate" data="{{...top250}}" />
+    </view>
+</view>

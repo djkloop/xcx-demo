@@ -1,0 +1,14 @@
+<template name="starsTemplate">
+  <view class='stars-container'>
+    <view class='stars'>
+      <block>
+        <text class='star-item star-y fa fa-star'></text>
+        <text class='star-item star-y fa fa-star'></text>
+        <text class='star-item star-y fa fa-star'></text>
+        <text class='star-item star-y fa fa-star'></text>
+        <text class='star-item fa fa-star'></text>
+      </block>
+    </view>
+    <text class='star-score'>{{average}}</text>
+  </view>
+</template>

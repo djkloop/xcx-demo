@@ -1,0 +1,33 @@
+@import "../t-movies-item/t-movies-item.wxss";
+
+.t-movies-container {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.t-movies-head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 30rpx 20rpx 22rpx;
+  font-size: 24rpx;
+
+}
+
+.t-movies-tag,
+.t-more {
+  color: #888;
+}
+
+.t-movies-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.t-movies-container {
+  margin:0 0 30rpx;
+  border-radius: 8rpx;
+  box-shadow: 0 0 10rpx rgba(220,220,220, .8);
+}

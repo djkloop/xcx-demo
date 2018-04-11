@@ -1,0 +1,18 @@
+<import src="../t-movies-item/t-movies-item.wxml" />
+
+<template name="tMoviesTemplate">
+  <view class="t-movies-container">
+    <view class='t-movies-head'>
+      <text class='t-movies-tag'>{{showTitle}}</text>
+      <view class='t-more'>
+        <text class='t-more-title'>更多</text>
+        <text class='t-more-icon fa fa-angle-double-right'></text>
+      </view>
+    </view>
+    <view class='t-movies-content'>
+      <block wx:for="{{movies}}" wx:for-index="idxx" wx:key="idxx">
+        <template is="moviesTemplate" data="{{...item}}" />
+      </block>
+    </view>
+  </view>
+</template>

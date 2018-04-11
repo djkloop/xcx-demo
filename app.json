@@ -1,9 +1,9 @@
 {
   "pages": [
-    "views/post/post",
     "views/welcome/welcome",
-    "views/post/co-detail-template/co-detail-template",
-    "views/movies/movies"
+    "views/movies/movies",
+    "views/post/post",
+    "views/post/co-detail-template/co-detail-template"
   ],
   "window": {
     "navigationBarBackgroundColor": "#191e5b",

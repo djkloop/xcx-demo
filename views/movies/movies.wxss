@@ -1,1 +1,5 @@
-/* views/movies/movies.wxss */
+@import "./t-movies-list/t-movies-list.wxss";
+
+.movies-main-container {
+  background: #e5e5e5;
+}

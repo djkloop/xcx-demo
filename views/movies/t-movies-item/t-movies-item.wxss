@@ -1,0 +1,25 @@
+@import "../t-star/t-star.wxss";
+
+.movies-container {
+  display: flex;
+  flex-direction: column;
+  width: 220rpx;
+  text-align: center;
+  font-size: 24rpx;
+  border: 2rpx solid #eee;
+  padding: 5rpx;
+  border-radius: 8rpx;
+  box-shadow: 0 0 8rpx #eee;
+  margin-bottom: 15rpx;
+}
+
+.movies-img {
+  width: 100%;
+  height: 270rpx;
+  padding-bottom: 10rpx;
+}
+
+.movies-title {
+  padding: 10rpx 0;
+  color: #333;
+}

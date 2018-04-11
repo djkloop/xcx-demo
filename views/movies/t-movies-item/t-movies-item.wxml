@@ -1,0 +1,8 @@
+<import src="../t-star/t-star.wxml" />
+<template name="moviesTemplate">
+  <view class='movies-container'>
+    <image class="movies-img" src="{{images}}"></image>
+    <text class='movies-title'>{{title}}</text>
+    <template is="starsTemplate" data="{{average}}" />
+  </view>
+</template>
