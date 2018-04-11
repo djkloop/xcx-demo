@@ -30,7 +30,7 @@ Page({
       frontColor: '#ffffff',
       backgroundColor: '#39abfc',
       animation: {
-        duration: 200,
+        duration: 1000,
         timingFunc: 'easeInOut'
       }
     });

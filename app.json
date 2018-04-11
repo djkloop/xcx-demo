@@ -1,12 +1,31 @@
 {
   "pages": [
-    "views/welcome/welcome",
     "views/post/post",
-    "views/post/co-detail-template/co-detail-template"
+    "views/welcome/welcome",
+    "views/post/co-detail-template/co-detail-template",
+    "views/movies/movies"
   ],
   "window": {
     "navigationBarBackgroundColor": "#191e5b",
     "navigationBarTitleText": "小程序标题测试",
     "navigationBarTextStyle": "#ffffff"
+  },
+  "tabBar": {
+    "color": "#191e5b",
+    "selectedColor": "#39abfc",
+    "list": [
+      {
+        "pagePath": "views/post/post",
+        "iconPath": "./static/books.png",
+        "selectedIconPath": "/static/books-active.png",
+        "text": "阅读"
+      },
+      {
+        "pagePath": "views/movies/movies",
+        "iconPath": "./static/movies.png",
+        "selectedIconPath": "/static/movies-active.png",
+        "text": "电影"
+      }
+    ]
   }
 }
